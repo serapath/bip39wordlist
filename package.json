@@ -1,0 +1,29 @@
+{
+  "name": "bip39wordlist",
+  "version": "0.0.0",
+  "description": "bip39 wordlists",
+  "main": "index.js",
+  "scripts": {
+    "start": "budo demo/demo.js:bundle.js --live --open",
+    "build": "browserify demo/demo.js > bundle.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/serapath/bip39wordlist.git"
+  },
+  "keywords": [
+    "bip39",
+    "wordlist",
+    "wordlists",
+    "mnemonic"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/serapath/bip39wordlist/issues"
+  },
+  "homepage": "https://github.com/serapath/bip39wordlist#readme",
+  "devDependencies": {
+    "budo": "^11.6.3"
+  }
+}
