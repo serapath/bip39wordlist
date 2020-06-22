@@ -4108,17 +4108,7 @@ module.exports={
 }
 },{}],3:[function(require,module,exports){
 const use = require('..')
-const lists = {
-  chinese_simplified: require('../chinese_simplified.json'),
-  chinese_traditional: require('../chinese_traditional.json'),
-  english: require('../english.json'),
-  french: require('../french.json'),
-  italian: require('../italian.json'),
-  japanese: require('../japanese.json'),
-  korean: require('../korean.json'),
-  spanish: require('../spanish.json'),
-  // german: require('../german.json'), // @TODO: add 2048 words long german wordlist
-}
+const lists = require('..')
 
 const parser = document.createElement('div')
 parser.innerHTML = `<select autofocus name="cars" id="cars">${
@@ -4135,19 +4125,17 @@ document.body.append(input)
 document.body.append(listview)
 
 function show (wordlist) {
-  const { list, seperator, bits, reverselist } = use(wordlist)
+  const { list, seperator } = wordlist
   console.log(list.length) // 2048
-  console.log(bits) // 11
-  console.log(wordlist[5]) // "abono"
+  console.log(list[5]) // "abono"
   console.log(seperator) // " "
-  console.log(reverselist["abono"]) // 5
   listview.textContent = `${JSON.stringify(Object.entries(wordlist), 0, 2)}`
 }
 
 input.selectedIndex = 2
 show(lists.english)
 
-},{"..":6,"../chinese_simplified.json":1,"../chinese_traditional.json":2,"../english.json":4,"../french.json":5,"../italian.json":7,"../japanese.json":8,"../korean.json":9,"../spanish.json":10}],4:[function(require,module,exports){
+},{"..":6}],4:[function(require,module,exports){
 module.exports={
   "seperator": " ",
   "list": [
@@ -8258,26 +8246,20 @@ module.exports={
 }
 
 },{}],6:[function(require,module,exports){
-module.exports = use
 
-function use ({ list, seperator }) {
-  const len = list.length
-  const bits = Math.ceil(Math.log2(len))
-  const reverselist = {}
-  // @TODO: lift the 'power of 2' requirement
-  // if (bits % 1 !== 0) throw new Error('wordlist length must be power of 2')
-  // @TODO: lift the lengt constraint
-  // if (bits > 25) throw new Error('wordlist must be shorter than 2^25 words')
-  for (var i = 0; i < len; i++) {
-    const word = list[i]
-    if (typeof word !== 'string') throw new Error('all words must be strings')
-    if (word.indexOf(' ') !== -1) throw new Error('words in wordlist may not contain whitespaces')
-    if (reverselist[word]) throw new Error('wordlist must not contain duplicate words')
-    reverselist[word] = i
-  }
-  return { list, seperator, bits, reverselist }
+module.exports = {
+  chinese_simplified: require('./chinese_simplified.json'),
+  chinese_traditional: require('./chinese_traditional.json'),
+  english: require('./english.json'),
+  french: require('./french.json'),
+  italian: require('./italian.json'),
+  japanese: require('./japanese.json'),
+  korean: require('./korean.json'),
+  spanish: require('./spanish.json'),
+  // german: require('./german.json'), // @TODO: add 2048 words long german wordlist
 }
-},{}],7:[function(require,module,exports){
+
+},{"./chinese_simplified.json":1,"./chinese_traditional.json":2,"./english.json":4,"./french.json":5,"./italian.json":7,"./japanese.json":8,"./korean.json":9,"./spanish.json":10}],7:[function(require,module,exports){
 module.exports={
   "seperator": " ",
   "list": [
@@ -14440,7 +14422,9 @@ module.exports={
   ]
 }
 },{}],10:[function(require,module,exports){
-module.exports=[
+module.exports={
+  "seperator": " ",
+  "list": [
     "ábaco",
     "abdomen",
     "abeja",
@@ -16489,6 +16473,6 @@ module.exports=[
     "zorro",
     "zumo",
     "zurdo"
-]
-
+  ]
+}
 },{}]},{},[3]);

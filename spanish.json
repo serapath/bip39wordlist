@@ -1,4 +1,6 @@
-[
+{
+  "seperator": " ",
+  "list": [
     "ábaco",
     "abdomen",
     "abeja",
@@ -2047,4 +2049,5 @@
     "zorro",
     "zumo",
     "zurdo"
-]
+  ]
+}

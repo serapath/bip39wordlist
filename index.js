@@ -1,19 +1,12 @@
-module.exports = use
 
-function use ({ list, seperator }) {
-  const len = list.length
-  const bits = Math.ceil(Math.log2(len))
-  const reverselist = {}
-  // @TODO: lift the 'power of 2' requirement
-  // if (bits % 1 !== 0) throw new Error('wordlist length must be power of 2')
-  // @TODO: lift the lengt constraint
-  // if (bits > 25) throw new Error('wordlist must be shorter than 2^25 words')
-  for (var i = 0; i < len; i++) {
-    const word = list[i]
-    if (typeof word !== 'string') throw new Error('all words must be strings')
-    if (word.indexOf(' ') !== -1) throw new Error('words in wordlist may not contain whitespaces')
-    if (reverselist[word]) throw new Error('wordlist must not contain duplicate words')
-    reverselist[word] = i
-  }
-  return { list, seperator, bits, reverselist }
+module.exports = {
+  chinese_simplified: require('./chinese_simplified.json'),
+  chinese_traditional: require('./chinese_traditional.json'),
+  english: require('./english.json'),
+  french: require('./french.json'),
+  italian: require('./italian.json'),
+  japanese: require('./japanese.json'),
+  korean: require('./korean.json'),
+  spanish: require('./spanish.json'),
+  // german: require('./german.json'), // @TODO: add 2048 words long german wordlist
 }

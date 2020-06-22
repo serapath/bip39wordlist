@@ -9,7 +9,7 @@ https://serapath.github.io/bip39wordlist/
 # use
 `npm install bip39wordlist`
 ```js
-const use = require('bip39wordlist')
+const all = require('bip39wordlist')
 
 const chinese_simplified = require('bip39wordlist/chinese_simplified.json')
 const chinese_traditional = require('bip39wordlist/chinese_traditional.json')
@@ -31,11 +31,9 @@ const spanish = require('bip39wordlist/spanish.json')
 // const wordlist = korean
 const wordlist = spanish
 
-const { list, seperator, bits, reverselist } = use(wordlist)
+const { list, seperator } = wordlist
 
 console.log(list.length) // 2048
-console.log(bits) // 11
-console.log(wordlist[5]) // "abono"
+console.log(list[5]) // "abono"
 console.log(seperator) // " "
-console.log(reverselist["abono"]) // 5
 ```
