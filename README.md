@@ -1,6 +1,11 @@
 # bip39wordlist
 bip39 wordlists
 
+https://www.npmjs.com/package/bip39wordlist
+
+https://serapath.github.io/bip39wordlist/
+
+
 # use
 `npm install bip39wordlist`
 ```js

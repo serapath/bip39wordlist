@@ -1,6 +1,6 @@
 {
   "name": "bip39wordlist",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "bip39 wordlists",
   "main": "index.js",
   "scripts": {
