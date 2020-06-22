@@ -22,9 +22,6 @@ input.onclick = event => {
   if (!wordlist) return console.error('invalid wordlist')
   const { bits, reverselist } = use(wordlist)
   show(wordlist)
-  parser.innerHTML = 
-  
-  console.log(bits)
 }
 document.body.append(input)
 document.body.append(listview)
