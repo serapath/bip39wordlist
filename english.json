@@ -1,4 +1,6 @@
-[
+{
+  "seperator": " ",
+  "list": [
     "abandon",
     "ability",
     "able",
@@ -2047,4 +2049,5 @@
     "zero",
     "zone",
     "zoo"
-]
+  ]
+}

@@ -1,5 +1,7 @@
 (function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r})()({1:[function(require,module,exports){
-module.exports=[
+module.exports={
+  "seperator": " ",
+  "list": [
     "的",
     "一",
     "是",
@@ -2048,10 +2050,12 @@ module.exports=[
     "怨",
     "矮",
     "歇"
-]
-
+  ]
+}
 },{}],2:[function(require,module,exports){
-module.exports=[
+module.exports={
+  "seperator": " ",
+  "list": [
     "的",
     "一",
     "是",
@@ -4100,8 +4104,8 @@ module.exports=[
     "怨",
     "矮",
     "歇"
-]
-
+  ]
+}
 },{}],3:[function(require,module,exports){
 const use = require('..')
 const lists = {
@@ -4125,13 +4129,18 @@ const [input, listview] = parser.children
 input.onclick = event => {
   const wordlist = lists[input.value]
   if (!wordlist) return console.error('invalid wordlist')
-  const { bits, reverselist } = use(wordlist)
   show(wordlist)
 }
 document.body.append(input)
 document.body.append(listview)
 
 function show (wordlist) {
+  const { list, seperator, bits, reverselist } = use(wordlist)
+  console.log(list.length) // 2048
+  console.log(bits) // 11
+  console.log(wordlist[5]) // "abono"
+  console.log(seperator) // " "
+  console.log(reverselist["abono"]) // 5
   listview.textContent = `${JSON.stringify(Object.entries(wordlist), 0, 2)}`
 }
 
@@ -4139,7 +4148,9 @@ input.selectedIndex = 2
 show(lists.english)
 
 },{"..":6,"../chinese_simplified.json":1,"../chinese_traditional.json":2,"../english.json":4,"../french.json":5,"../italian.json":7,"../japanese.json":8,"../korean.json":9,"../spanish.json":10}],4:[function(require,module,exports){
-module.exports=[
+module.exports={
+  "seperator": " ",
+  "list": [
     "abandon",
     "ability",
     "able",
@@ -6188,10 +6199,13 @@ module.exports=[
     "zero",
     "zone",
     "zoo"
-]
+  ]
+}
 
 },{}],5:[function(require,module,exports){
-module.exports=[
+module.exports={
+  "seperator": " ",
+  "list": [
     "abaisser",
     "abandon",
     "abdiquer",
@@ -8240,13 +8254,14 @@ module.exports=[
     "zénith",
     "zeste",
     "zoologie"
-]
+  ]
+}
 
 },{}],6:[function(require,module,exports){
 module.exports = use
 
-function use (wordlist) {
-  const len = wordlist.length
+function use ({ list, seperator }) {
+  const len = list.length
   const bits = Math.ceil(Math.log2(len))
   const reverselist = {}
   // @TODO: lift the 'power of 2' requirement
@@ -8254,16 +8269,18 @@ function use (wordlist) {
   // @TODO: lift the lengt constraint
   // if (bits > 25) throw new Error('wordlist must be shorter than 2^25 words')
   for (var i = 0; i < len; i++) {
-    const word = wordlist[i]
+    const word = list[i]
     if (typeof word !== 'string') throw new Error('all words must be strings')
     if (word.indexOf(' ') !== -1) throw new Error('words in wordlist may not contain whitespaces')
     if (reverselist[word]) throw new Error('wordlist must not contain duplicate words')
     reverselist[word] = i
   }
-  return { bits, reverselist }
+  return { list, seperator, bits, reverselist }
 }
 },{}],7:[function(require,module,exports){
-module.exports=[
+module.exports={
+  "seperator": " ",
+  "list": [
     "abaco",
     "abbaglio",
     "abbinato",
@@ -10312,10 +10329,12 @@ module.exports=[
     "zufolo",
     "zulu",
     "zuppa"
-]
-
+  ]
+}
 },{}],8:[function(require,module,exports){
-module.exports=[
+module.exports={
+  "seperator": "\u3000",
+  "list": [
     "あいこくしん",
     "あいさつ",
     "あいだ",
@@ -12364,10 +12383,12 @@ module.exports=[
     "わすれもの",
     "わらう",
     "われる"
-]
-
+  ]
+}
 },{}],9:[function(require,module,exports){
-module.exports=[
+module.exports={
+  "seperator": " ",
+  "list": [
     "가격",
     "가끔",
     "가난",
@@ -14416,8 +14437,8 @@ module.exports=[
     "희생",
     "흰색",
     "힘껏"
-]
-
+  ]
+}
 },{}],10:[function(require,module,exports){
 module.exports=[
     "ábaco",

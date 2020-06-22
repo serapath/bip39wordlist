@@ -20,13 +20,18 @@ const [input, listview] = parser.children
 input.onclick = event => {
   const wordlist = lists[input.value]
   if (!wordlist) return console.error('invalid wordlist')
-  const { bits, reverselist } = use(wordlist)
   show(wordlist)
 }
 document.body.append(input)
 document.body.append(listview)
 
 function show (wordlist) {
+  const { list, seperator, bits, reverselist } = use(wordlist)
+  console.log(list.length) // 2048
+  console.log(bits) // 11
+  console.log(wordlist[5]) // "abono"
+  console.log(seperator) // " "
+  console.log(reverselist["abono"]) // 5
   listview.textContent = `${JSON.stringify(Object.entries(wordlist), 0, 2)}`
 }
 

@@ -31,10 +31,11 @@ const spanish = require('bip39wordlist/spanish.json')
 // const wordlist = korean
 const wordlist = spanish
 
-const { bits, reverselist } = use(wordlist)
+const { list, seperator, bits, reverselist } = use(wordlist)
 
-console.log(wordlist.length) // 2048
+console.log(list.length) // 2048
 console.log(bits) // 11
 console.log(wordlist[5]) // "abono"
+console.log(seperator) // " "
 console.log(reverselist["abono"]) // 5
 ```

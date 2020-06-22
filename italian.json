@@ -1,4 +1,6 @@
-[
+{
+  "seperator": " ",
+  "list": [
     "abaco",
     "abbaglio",
     "abbinato",
@@ -2047,4 +2049,5 @@
     "zufolo",
     "zulu",
     "zuppa"
-]
+  ]
+}

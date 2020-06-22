@@ -1,4 +1,6 @@
-[
+{
+  "seperator": " ",
+  "list": [
     "abaisser",
     "abandon",
     "abdiquer",
@@ -2047,4 +2049,5 @@
     "zénith",
     "zeste",
     "zoologie"
-]
+  ]
+}
